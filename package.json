@@ -1,0 +1,15 @@
+{
+  "name": "tic-tac-toe",
+  "version": "1.0.0",
+  "description": "JS Tic Tac Toe game",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StevenLally/Tic-Tac-Toe.git"
+  },
+  "author": "Steve Lally",
+  "license": "ISC"
+}
