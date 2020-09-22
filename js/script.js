@@ -12,28 +12,71 @@ const gameBoard = (() => {
         {id: 9, value: null}
     ];
 
-    const winConditions = (boardArr) => {
-        switch(boardArr) {
-            case (boardArr[0].value === boardArr[1].value && boardArr[0].value === boardArr[2].value):
-                return true;
-            case (boardArr[3].value === boardArr[4].value && boardArr[3].value === boardArr[5].value):
-                return true;
-            case (boardArr[6].value === boardArr[7].value && boardArr[6].value === boardArr[8].value):
-                return true;
-            case (boardArr[0].value === boardArr[3].value && boardArr[0].value === boardArr[6].value):
-                return true;
-            case (boardArr[1].value === boardArr[4].value && boardArr[1].value === boardArr[7].value):
-                return true;
-            case (boardArr[2].value === boardArr[5].value && boardArr[2].value === boardArr[8].value):
-                return true;
-            case (boardArr[0].value === boardArr[4].value && boardArr[0].value === boardArr[8].value):
-                return true;
-            case (boardArr[2].value === boardArr[4].value && boardArr[2].value === boardArr[6].value):
-                return true;
-            default:
-                return false;
+    const updateBoard = (id, value) => {
+        const square = board.findIndex(obj => obj.id === id);
+        board[square].value = value;
+    }
+
+    const checkWin = (boardArr) => {
+        const topL = boardArr[0].value;
+        const topM = boardArr[1].value;
+        const topR = boardArr[2].value;
+        const midL = boardArr[3].value;
+        const midM = boardArr[4].value;
+        const midR = boardArr[5].value;
+        const botL = boardArr[6].value;
+        const botM = boardArr[7].value;
+        const botR = boardArr[8].value;
+
+        if (topL === topM && topL === topR) {
+            if (topL != null){
+                return topL;
+            }
         }
+        if (midL === midM && midL === midR) {
+            if (midL != null){
+                return midL;
+            }
+        }
+        if (botL === botM && botL === botR) {
+            if (botL != null){
+                return botL;
+            }
+        }
+        if (topL === midL && topL === botL) {
+            if (topL != null){
+                return topL;
+            }
+        }
+        if (topM === midM && topM === botM) {
+            if (topM != null){
+                return topM;
+            }
+        }
+        if (topR === midR && topR === botR) {
+            if (topR != null){
+                return topR;
+            }
+        }
+        if (topL === midM && topL === botR) {
+            if (topL != null){
+                return topL;
+            }
+        }
+        if (topR === midM && topR === botL) {
+            if (topR != null){
+                return topR;
+            }
+        }
+        
+        return false;
     };
+
+    return {
+        board,
+        updateBoard,
+        checkWin
+    }
 })();
 
 //module for handling HTML changes
