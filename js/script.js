@@ -80,3 +80,6 @@ const gameBoard = (() => {
 })();
 
 //module for handling HTML changes
+
+//module for page display
+
