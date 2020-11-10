@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
 
     <title>Document</title>
 </head>
 <body>
-    Tic Tac Toe!
+    <h1 class="text-center mb-5">Tic Tac Toe!</h1>
 
-    <div class="container text-center">
+    <div class="container text-center players">
         <div class="row">
             <div class="col">
                 <p>Player 1 Name (X):</p>
@@ -24,37 +25,37 @@
         </div>
     </div>
 
-    <div class="container text-center">
+    <div class="container text-center board">
         <div class="row">
-            <div class="offset-3 col-2 border-bottom border-right border-dark">
+            <div id="1" class="offset-3 col-2 border-bottom border-right border-dark">
                 <p></p>
             </div>
-            <div class="col-2 border-bottom border-right border-dark">
+            <div id="2" class="col-2 border-bottom border-right border-dark">
                 <p></p>
             </div>
-            <div class="col-2 border-bottom border-dark">
+            <div id="3" class="col-2 border-bottom border-dark">
                 <p></p>
             </div>
         </div>
         <div class="row">
-            <div class="offset-3 col-2 border-bottom border-right border-dark">
+            <div id="4" class="offset-3 col-2 border-bottom border-right border-dark">
                 <p></p>
             </div>
-            <div class="col-2 border-bottom border-right border-dark">
+            <div id="5" class="col-2 border-bottom border-right border-dark">
                 <p></p>
             </div>
-            <div class="col-2 border-bottom border-dark">
+            <div id="6" class="col-2 border-bottom border-dark">
                 <p></p>
             </div>
         </div>
         <div class="row">
-            <div class="offset-3 col-2 border-right border-dark">
+            <div id="7" class="offset-3 col-2 border-right border-dark">
                 <p></p>
             </div>
-            <div class="col-2 border-right border-dark">
+            <div id="8" class="col-2 border-right border-dark">
                 <p></p>
             </div>
-            <div class="col-2">
+            <div id="9" class="col-2">
                 <p></p>
             </div>
         </div>

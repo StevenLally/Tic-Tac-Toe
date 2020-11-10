@@ -1,20 +1,48 @@
 //need gameboard module to set up grid and methods to check for win conditions
 const gameBoard = (() => {
-    const board = [
-        {id: 1, value: null},
-        {id: 2, value: null},
-        {id: 3, value: null},
-        {id: 4, value: null},
-        {id: 5, value: null},
-        {id: 6, value: null},
-        {id: 7, value: null},
-        {id: 8, value: null},
-        {id: 9, value: null}
+    let moveCount = 0;
+    let currentPlayer = "X";
+    const board = document.querySelectorAll(".board > .row > div");
+
+    const initializeBoard = (boardNodes) => {
+        boardNodes.forEach(node => {
+            node.addEventListener("click", () => {
+                moveCount++;
+                node.innerHTML = currentPlayer;
+                updateBoardState(node.id, currentPlayer);
+                if (currentPlayer === "X") {
+                    currentPlayer = "O";
+                } else {
+                    currentPlayer = "X";
+                }
+                
+                const result = checkWin(boardState);
+                if (result) {
+                    if (result === "Tie"){
+                        alert("It's a Tie!");
+                    } else {
+                        alert(result + "Wins!");
+                    }
+                }
+            });
+        });
+    };
+
+    const boardState = [
+        {id: "1", value: null},
+        {id: "2", value: null},
+        {id: "3", value: null},
+        {id: "4", value: null},
+        {id: "5", value: null},
+        {id: "6", value: null},
+        {id: "7", value: null},
+        {id: "8", value: null},
+        {id: "9", value: null}
     ];
 
-    const updateBoard = (id, value) => {
-        const square = board.findIndex(obj => obj.id === id);
-        board[square].value = value;
+    const updateBoardState = (id, value) => {
+        const square = boardState.findIndex(obj => obj.id === id);
+        boardState[square].value = value;
     }
 
     const checkWin = (boardArr) => {
@@ -68,18 +96,20 @@ const gameBoard = (() => {
                 return topR;
             }
         }
-        
-        return false;
+        if (moveCount === 9){
+            return "Tie";
+        } else {
+            return false;
+        }
     };
 
     return {
         board,
-        updateBoard,
+        initializeBoard,
+        boardState,
+        updateBoardState,
         checkWin
     }
 })();
 
-//module for handling HTML changes
-
-//module for page display
-
+window.onload = gameBoard.initializeBoard(gameBoard.board);
